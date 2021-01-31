@@ -1,5 +1,4 @@
 import s from './style.module.css'
-import * as url from 'url'
 
 const Layout = ({ id, title, colorTitle, urlBg, colorBg, children }) => {
   const sectionStyle = {}
