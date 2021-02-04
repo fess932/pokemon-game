@@ -1,13 +1,9 @@
 import Header from '../../components/header'
 import Layout from '../../components/layout'
-import PokemonCard from '../../components/PokemonCard'
-import Footer from '../../components/footer'
 
 import Bg2 from '../../assets/bg2.jpg'
 import Bg3 from '../../assets/bg3.jpg'
-import POKEMONS from '../../assets/pokemonsData.json'
 
-import s from './style.module.css'
 import MenuHeader from '../../components/MenuHeader'
 
 const HomePage = ({ onChangePage }) => {

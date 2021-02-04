@@ -11,7 +11,6 @@ import ContactPage from './routes/ContactPage'
 import NotFound from './routes/NotFound/indext'
 
 import s from './style.module.css'
-import GoHome from './components/GoHome'
 
 const App = () => {
   const match = useRouteMatch('/')
