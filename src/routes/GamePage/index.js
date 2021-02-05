@@ -7,19 +7,14 @@ import POKEMONS from '../../assets/pokemonsData.json'
 import s from './style.module.css'
 
 const GamePage = () => {
-  const [cards, mutateCards] = useState(() =>
-    POKEMONS.map((pokemon) => ({
-      isActive: false,
-      ...pokemon,
-    }))
-  )
+  const [cards, mutateCards] = useState(POKEMONS)
 
   const revertPokemon = (id) => {
-    mutateCards((prevState) => {
-      const [cur] = prevState.filter((item) => item.id === id)
-      cur.isActive = !cur.isActive
-      return [...prevState]
-    })
+    mutateCards((prevState) =>
+      prevState.map((item) =>
+        item.id === id ? { ...item, isActive: !item.isActive } : item
+      )
+    )
   }
 
   return (
