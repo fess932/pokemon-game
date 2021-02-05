@@ -1,14 +1,14 @@
-const GamePage = ({ onChangePage }) => {
+const NotFound = ({ onChangePage }) => {
   const handleOnClick = () => {
     onChangePage && onChangePage('app')
   }
 
   return (
     <div className="root">
-      <div>This is Game Page!</div>
+      <div>404 Not Found Page</div>
       <button onClick={handleOnClick}>Back to homepage</button>
     </div>
   )
 }
 
-export default GamePage
+export default NotFound

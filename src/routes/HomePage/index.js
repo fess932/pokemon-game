@@ -1,13 +1,9 @@
 import Header from '../../components/header'
 import Layout from '../../components/layout'
-import PokemonCard from '../../components/PokemonCard'
-import Footer from '../../components/footer'
 
 import Bg2 from '../../assets/bg2.jpg'
 import Bg3 from '../../assets/bg3.jpg'
-import POKEMONS from '../../assets/pokemonsData.json'
 
-import s from './style.module.css'
 import MenuHeader from '../../components/MenuHeader'
 
 const HomePage = ({ onChangePage }) => {
@@ -37,21 +33,6 @@ const HomePage = ({ onChangePage }) => {
         </p>
       </Layout>
 
-      <Layout id="cards" title="Cards" colorTitle="#FEFEFE" colorBg="#202736">
-        <div className={s.flex}>
-          {POKEMONS.map((item) => (
-            <PokemonCard
-              name={item.name}
-              id={item.id}
-              values={item.values}
-              img={item.img}
-              type={item.type}
-              key={item.id}
-            />
-          ))}
-        </div>
-      </Layout>
-
       <Layout id="about" title="Full Rules" urlBg={Bg3}>
         <p>
           To win, a majority of the total ten cards played (including the one
@@ -67,8 +48,6 @@ const HomePage = ({ onChangePage }) => {
           captured and changed into the player's color instead.
         </p>
       </Layout>
-
-      <Footer />
     </>
   )
 }

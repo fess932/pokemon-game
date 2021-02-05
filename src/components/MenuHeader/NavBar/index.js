@@ -1,9 +1,9 @@
 import s from './style.module.css'
 import cn from 'classnames'
 
-const NavBar = ({ onClickMenu, isActive }) => {
+const NavBar = ({ onClickMenu, bgActive, isActive }) => {
   return (
-    <nav className={cn(s.navbar, { [s.bgActive]: isActive })}>
+    <nav className={cn(s.navbar, { [s.bgActive]: bgActive })}>
       <div className={s.navWrapper}>
         <p className={s.brand}>POKE</p>
 
