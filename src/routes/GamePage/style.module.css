@@ -8,3 +8,17 @@
     align-items: center;
     flex-wrap: wrap;
 }
+
+.btn {
+    padding: 6px;
+    font-size: 1.6rem;
+    background-color: #f300b4;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #f300b4;
+}
