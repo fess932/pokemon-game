@@ -8,13 +8,14 @@ const PokemonCard = ({
   name,
   img,
   id,
+  uid,
   type,
   values,
   isActive,
   revertPokemon,
 }) => {
   const handleClick = () => {
-    revertPokemon(id)
+    revertPokemon(uid)
   }
 
   return (
