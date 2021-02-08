@@ -37,15 +37,18 @@ function createNewPoke() {
 const GamePage = () => {
   const [cards, mutateCards] = useState({})
 
-  useEffect(() => {
+  const updateCards = () => {
     database.ref('pokemons').once('value', (snapshot) => {
       mutateCards(snapshot.val())
     })
-  }, [cards])
+  }
+
+  useEffect(() => {
+    updateCards()
+  }, [])
 
   const addNewPokemonHandle = () => {
-    const newPoke = database.ref('pokemons').push({ ...createNewPoke() })
-    console.log(newPoke.key)
+    database.ref('pokemons').push({ ...createNewPoke() })
   }
 
   const revertPokemon = (uid) => {
@@ -54,7 +57,11 @@ const GamePage = () => {
         const pokemon = { ...item[1] }
         if (item[0] === uid) {
           pokemon.isActive = !pokemon.isActive
-          database.ref('pokemons/' + item[0]).set({ ...pokemon })
+          database
+            .ref('pokemons/' + item[0])
+            .set({ ...pokemon })
+            .then(() => updateCards())
+            .catch((e) => console.log('err'))
         }
 
         acc[item[0]] = pokemon
