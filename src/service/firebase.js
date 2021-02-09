@@ -2,13 +2,14 @@ import firebase from 'firebase/app'
 import 'firebase/database'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAW6lNb0Homdoykhd-4U74oASbV32zCBWY',
-  authDomain: 'pokemon-game-a95b5.firebaseapp.com',
-  databaseURL: 'https://pokemon-game-a95b5-default-rtdb.firebaseio.com',
-  projectId: 'pokemon-game-a95b5',
-  storageBucket: 'pokemon-game-a95b5.appspot.com',
-  messagingSenderId: '697366951497',
-  appId: '1:697366951497:web:a09343ac375533eea3b198',
+  apiKey: 'AIzaSyDjATMIS47XzeaekVx4pduUuD0BXgLj2o0',
+  authDomain: 'pokemon-game-2.firebaseapp.com',
+  databaseURL:
+    'https://pokemon-game-2-default-rtdb.europe-west1.firebasedatabase.app',
+  projectId: 'pokemon-game-2',
+  storageBucket: 'pokemon-game-2.appspot.com',
+  messagingSenderId: '856235514316',
+  appId: '1:856235514316:web:e954bc5e758be760d92569',
 }
 
 firebase.initializeApp(firebaseConfig)

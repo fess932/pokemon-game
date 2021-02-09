@@ -11,8 +11,10 @@ const PokemonCard = ({
   uid,
   type,
   values,
-  isActive,
+  isActive = true,
   revertPokemon,
+  minimize,
+  className,
 }) => {
   const handleClick = () => {
     revertPokemon(uid)
@@ -20,7 +22,7 @@ const PokemonCard = ({
 
   return (
     <div
-      className={cn(s.pokemonCard, { [s.active]: isActive })}
+      className={cn(className, s.pokemonCard, { [s.active]: isActive })}
       onClick={handleClick}
     >
       <div className={s.cardFront}>
@@ -35,21 +37,21 @@ const PokemonCard = ({
             <div className={s.imgContainer}>
               <img src={img} alt={name} />
             </div>
-            <div className={s.info}>
-              <span className={s.number}>#{id}</span>
-              <h3 className={s.name}>{name}</h3>
-              <small className={type}>
-                Type: <span>{type}</span>
-              </small>
-            </div>
+            {!minimize && (
+              <div className={s.info}>
+                <span className={s.number}>#{id}</span>
+                <h3 className={s.name}>{name}</h3>
+                <small className={s.type}>
+                  Type: <span>{type}</span>
+                </small>
+              </div>
+            )}
           </div>
         </div>
       </div>
 
       <div className={s.cardBack}>
-        <div className={cn(s.wrap, s.back)}>
-          <img src={cardBackSide} alt="Card Backed" />
-        </div>
+        <div className={cn(s.wrap, s.back)} />
       </div>
     </div>
   )
