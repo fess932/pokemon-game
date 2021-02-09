@@ -42,7 +42,7 @@ const BoardPage = () => {
               isSelected={isSelected}
               clickHandler={handleChangeActive}
               className={s.card}
-              minimize={true}
+              minimize
             />
           )
         )}
