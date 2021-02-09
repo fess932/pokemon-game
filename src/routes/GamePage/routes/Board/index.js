@@ -1,9 +1,52 @@
 import s from './style.module.css'
 
+import { useContext } from 'react'
+import { PokemonContext } from '../../../../context/pokemonContext'
+import PokemonCard from '../../../../components/PokemonCard'
+
 const BoardPage = () => {
+  const { selectedPokemons } = useContext(PokemonContext)
+  console.log(selectedPokemons)
+
+  const handleChangeActive = (id) => {
+    console.log('handle active, id:', id)
+    // setPokemons((prevState) => {
+    //     return Object.entries(prevState).reduce((acc, item) => {
+    //         const pokemon = { ...item[1] }
+    //         if (pokemon.id === id) {
+    //             pokemon.active = !pokemon.active
+    //         }
+    //
+    //         acc[item[0]] = pokemon
+    //
+    //         firebase.postPokemon(item[0], pokemon)
+    //         return acc
+    //     }, {})
+    // })
+  }
+
   return (
     <div className={s.root}>
-      <div className={s.playerOne}></div>
+      <div className={s.playerOne}>
+        {Object.entries(selectedPokemons).map(
+          ([uid, { name, id, values, img, type, isSelected }]) => (
+            <PokemonCard
+              name={name}
+              id={id}
+              uid={uid}
+              values={values}
+              img={img}
+              type={type}
+              key={uid}
+              isActive={true}
+              isSelected={isSelected}
+              clickHandler={handleChangeActive}
+              className={s.card}
+              minimize={true}
+            />
+          )
+        )}
+      </div>
       <div className={s.board}>
         <div className={s.boardPlate}>1</div>
         <div className={s.boardPlate}>2</div>

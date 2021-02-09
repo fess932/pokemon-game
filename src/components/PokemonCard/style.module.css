@@ -20,6 +20,7 @@
     transform-style: preserve-3d;
     transition: .6s .1s;
     transform: rotateY(180deg);
+    cursor: pointer;
 }
 
 .pokemonCard.active {
@@ -88,7 +89,7 @@
 
 .wrap.back {
     z-index: -1;
-    background-image: url(./assets/card-back-side.jpg);
+    background-image: url(../../assets/card-back-side.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -1,36 +1,30 @@
-import { Switch, useRouteMatch, Route } from 'react-router-dom'
-import { useState, useEffect, useContext } from 'react'
+import { Route, Switch, useHistory, useRouteMatch } from 'react-router-dom'
+import { useState, useContext } from 'react'
 import { PokemonContext } from '../../context/pokemonContext'
+import { FireBaseContex } from '../../context/firebaseContext'
 
 import StartPage from './routes/Start'
 import BoardPage from './routes/Board'
 import FinishPage from './routes/Finish'
-import database from '../../service/firebase'
 
 const GamePage = () => {
-  const [cards, mutateCards] = useState([])
   const match = useRouteMatch()
+  const [selectedPokemons, setSelectedPokemons] = useState([])
+  const firebase = useContext(FireBaseContex)
+  console.log('### selectedPokemons: ', selectedPokemons)
 
-  const pokemonContext = useContext(PokemonContext)
-  console.log(pokemonContext)
-
-  const updateCards = () => {
-    database.ref('pokemons').once('value', (snapshot) => {
-      mutateCards(snapshot.val())
-    })
-    console.log('####: update, ', cards)
+  const history = useHistory()
+  const updateSelectedPokemons = (pokemons) => {
+    setSelectedPokemons(pokemons)
+    history.push(`${match.path}/board`)
   }
-
-  useEffect(() => {
-    updateCards()
-  }, [updateCards])
-
-  console.log(cards)
 
   return (
     <PokemonContext.Provider
       value={{
-        pokemon: [],
+        firebase,
+        selectedPokemons,
+        updateSelectedPokemons,
       }}
     >
       <Switch>

@@ -1,5 +1,5 @@
 const FinishPage = () => {
-  return <div>start page</div>
+  return <h1>Game Over</h1>
 }
 
 export default FinishPage
