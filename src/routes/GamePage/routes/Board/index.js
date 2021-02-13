@@ -10,19 +10,6 @@ const BoardPage = () => {
 
   const handleChangeActive = (id) => {
     console.log('handle active, id:', id)
-    // setPokemons((prevState) => {
-    //     return Object.entries(prevState).reduce((acc, item) => {
-    //         const pokemon = { ...item[1] }
-    //         if (pokemon.id === id) {
-    //             pokemon.active = !pokemon.active
-    //         }
-    //
-    //         acc[item[0]] = pokemon
-    //
-    //         firebase.postPokemon(item[0], pokemon)
-    //         return acc
-    //     }, {})
-    // })
   }
 
   return (
@@ -42,7 +29,7 @@ const BoardPage = () => {
               isSelected={isSelected}
               clickHandler={handleChangeActive}
               className={s.card}
-              minimize
+              minimize={true}
             />
           )
         )}
