@@ -1,6 +1,5 @@
 import { useHistory } from 'react-router-dom'
 import { useContext, useState, useEffect } from 'react'
-import cn from 'classnames'
 
 import PokemonCard from '../../../../components/PokemonCard'
 import { PokemonContext } from '../../../../context/pokemonContext'
@@ -26,9 +25,7 @@ const counterWin = (board, player1, player2) => {
 }
 
 const BoardPage = () => {
-  const { selectedPokemons, enemyPokemons, setEnemyPokemons } = useContext(
-    PokemonContext
-  )
+  const { selectedPokemons, setEnemyPokemons } = useContext(PokemonContext)
   const [board, setBoard] = useState([])
 
   const [player1, setPlayer1] = useState(() => {
@@ -70,11 +67,7 @@ const BoardPage = () => {
       setEnemyPokemons(player2JSON.data)
     }
     fetchPlayer2().then(() => console.log('player 2 fetched'))
-  }, [])
-
-  const handleChangeActive = (id) => {
-    console.log('handle active, id:', id)
-  }
+  }, [setEnemyPokemons])
 
   const handleClickBoardPlate = async (position) => {
     console.log(position)
@@ -134,7 +127,7 @@ const BoardPage = () => {
       }
       history.replace('/game/finish')
     }
-  }, [steps])
+  }, [steps, board, history, player1, player2])
 
   return (
     <div className={s.root}>
