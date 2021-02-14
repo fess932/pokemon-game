@@ -15,6 +15,7 @@ const PokemonCard = ({
   clickHandler,
   minimize,
   className,
+  possession,
 }) => {
   console.log('onClick', isSelected, isActive)
   return (
@@ -25,12 +26,12 @@ const PokemonCard = ({
       })}
       onClick={() => {
         console.log('click handler pokemon card, id:', id)
-        clickHandler(id)
+        clickHandler && clickHandler(id)
       }}
     >
       <div className={s.cardFront}>
         <div className={cn(s.wrap, s.front)}>
-          <div className={cn(s.pokemon, s[type])}>
+          <div className={cn(s.pokemon, s[type], s[possession])}>
             <div className={s.values}>
               <div className={cn(s.count, s.top)}>{values.top}</div>
               <div className={cn(s.count, s.right)}>{values.right}</div>

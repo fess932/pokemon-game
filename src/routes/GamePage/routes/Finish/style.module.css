@@ -1,0 +1,45 @@
+.root {
+  display: grid;
+  min-height: 80vh;
+  justify-items: center;
+  align-items: center;
+  grid-template-rows: 45% 10% 45%;
+}
+
+.endGame {
+  max-height: 100px;
+  padding: 1rem;
+  border: 1px solid #f300b4;
+  color: #f300b4;
+  background: transparent;
+  outline-style: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1rem;
+  transition: 0.2s;
+  text-decoration: none;
+}
+
+.endGame:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 100px -20px #f300b4;
+}
+
+.cardLine {
+  display: flex;
+}
+
+.choices {
+  color: goldenrod;
+  margin-top: -20px;
+}
+
+.player1 {
+  height: 300px;
+  width: 200px;
+}
+
+.player2 {
+  height: 300px;
+  width: 200px;
+}

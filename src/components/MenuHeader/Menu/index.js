@@ -11,8 +11,6 @@ const MENU = [
 ]
 
 const Menu = ({ onClickMenu, isActive, bgActive }) => {
-  console.log(isActive)
-
   return (
     <div
       className={cn(s.menuContainer, {
