@@ -1,7 +1,6 @@
 import { Route, Switch, useHistory, useRouteMatch } from 'react-router-dom'
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import { PokemonContext } from '../../context/pokemonContext'
-import { FireBaseContex } from '../../context/firebaseContext'
 
 import StartPage from './routes/Start'
 import BoardPage from './routes/Board'
@@ -9,8 +8,9 @@ import FinishPage from './routes/Finish'
 
 const GamePage = () => {
   const match = useRouteMatch()
-  const [selectedPokemons, setSelectedPokemons] = useState([])
-  const firebase = useContext(FireBaseContex)
+  const [selectedPokemons, setSelectedPokemons] = useState({})
+  const [enemyPokemons, setEnemyPokemons] = useState({})
+
   console.log('### selectedPokemons: ', selectedPokemons)
 
   const history = useHistory()
@@ -22,9 +22,10 @@ const GamePage = () => {
   return (
     <PokemonContext.Provider
       value={{
-        firebase,
         selectedPokemons,
         updateSelectedPokemons,
+        enemyPokemons,
+        setEnemyPokemons,
       }}
     >
       <Switch>

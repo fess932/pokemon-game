@@ -3,7 +3,7 @@ import NavBar from './NavBar'
 import { useState } from 'react'
 
 const MenuHeader = ({ bgActive }) => {
-  const [isActive, setIsActive] = useState(null)
+  const [isActive, setIsActive] = useState(false)
 
   const handleOnClick = () => {
     setIsActive(!isActive)

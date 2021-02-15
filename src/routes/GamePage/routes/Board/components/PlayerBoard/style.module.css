@@ -1,0 +1,16 @@
+.cardBoard {
+  height: 13.8vw;
+  margin-top: -6vw;
+}
+
+.cardBoard:nth-child(2) {
+  margin-top: 0;
+}
+
+.cardBoard.selected {
+  margin-right: -20px;
+}
+
+.cardBoard.selected2 {
+  margin-left: -20px;
+}
